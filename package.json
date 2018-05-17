@@ -1,0 +1,19 @@
+{
+    "name": "natrium",
+    "version": "0.0.1",
+    "description": "Natrium - Angular Admin Auto Generator",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lordmos/Natrium.git"
+    },
+    "author": "LordMOS",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lordmos/Natrium/issues"
+    },
+    "homepage": "https://github.com/lordmos/Natrium#readme"
+}
