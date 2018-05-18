@@ -4,7 +4,15 @@
     "description": "Natrium - Angular Admin Auto Generator",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "npm run serve",
+        "build": "npm run build-ts && npm run tslint",
+        "build-ts": "tsc",
+        "tslint": "tslint -c tslint.json -p tsconfig.json",
+        "serve": "node dist/app.js",
+        "install": "node dist/post-install.js"
+    },
+    "bin": {
+        "natrium": "./dist/app.js"
     },
     "repository": {
         "type": "git",
@@ -15,5 +23,11 @@
     "bugs": {
         "url": "https://github.com/lordmos/Natrium/issues"
     },
-    "homepage": "https://github.com/lordmos/Natrium#readme"
+    "homepage": "https://github.com/lordmos/Natrium#readme",
+    "dependencies": {},
+    "devDependencies": {
+        "@types/node": "^10.1.1",
+        "tslint": "^5.10.0",
+        "typescript": "^2.8.3"
+    }
 }
