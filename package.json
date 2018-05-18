@@ -9,7 +9,8 @@
         "build-ts": "tsc",
         "tslint": "tslint -c tslint.json -p tsconfig.json",
         "serve": "node dist/app.js",
-        "install": "node dist/post-install.js"
+        "install": "node dist/post-install.js",
+        "uninstall": "node dist/post-uninstall.js"
     },
     "bin": {
         "natrium": "./dist/app.js"
