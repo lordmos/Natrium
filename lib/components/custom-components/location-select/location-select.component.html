@@ -1,0 +1,27 @@
+<div class="selector select-container">
+	<select [disabled]="isDisabled" [(ngModel)]="p" (ngModelChange)="provinceChange($event)">
+		<option value="-1" disabled selected>省／直辖市／自治区</option>
+		<option *ngFor="let province of provinces()" [value]="getProvince(province).id">
+			{{getProvince(province).name}}
+		</option>
+	</select>
+	<span class="ion ion-arrow-down-b"></span>
+</div>
+<div class="selector select-container">
+	<select [disabled]="isDisabled" [(ngModel)]="c" (ngModelChange)="cityChange($event)">
+		<option value="-1" disabled selected>市／县</option>
+		<option *ngFor="let city of cities(locationInfo.provinceId)" [value]="getCity(locationInfo.provinceId , city).id">
+			{{getCity(locationInfo.provinceId , city).name}}
+		</option>
+	</select>
+	<span class="ion ion-arrow-down-b"></span>
+</div>
+<div class="selector select-container">
+	<select [disabled]="isDisabled" [(ngModel)]="d" (ngModelChange)="districtChange($event)">
+		<option value="-1" disabled selected>区／镇</option>
+		<option *ngFor="let district of districts(locationInfo.provinceId , locationInfo.cityId)" [value]="getDistrict(locationInfo.provinceId , locationInfo.cityId , district).id">
+			{{getDistrict(locationInfo.provinceId ,locationInfo.cityId, district).name}}
+		</option>
+	</select>
+	<span class="ion ion-arrow-down-b"></span>
+</div>

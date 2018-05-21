@@ -1,0 +1,108 @@
+.form-container {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    padding-bottom: 0;
+    /* height: 100%; */
+}
+
+.form-lite {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: white;
+    position: relative;
+}
+
+.form-lite .header {
+    display: block;
+    border-left: 0.25rem solid #d5212b;
+    overflow: auto;
+    background-color: #F9F9F9;
+    width: 100%;
+}
+
+.form-lite .header .title {
+    display: inline-block;
+    padding: 1rem;
+    font-size: 1rem;
+    float: left;
+    font-weight: bold;
+}
+
+.form-lite .body {
+    background: white;
+    padding: 1rem 0;
+}
+
+.form-lite .body .form-line {
+    display: block;
+    padding: 0 1rem;
+}
+
+.form-lite .body .form-line label {
+    width: 20%;
+    text-align: right;
+    display: inline-block;
+    font-size: 1rem;
+    color: #8e9093;
+}
+
+.form-lite .body .form-line .content-container {
+    display: inline-block;
+    width: 60%;
+    margin: 0;
+}
+
+.form-lite .body .form-line .content-container div {
+    display: block;
+    height: 42px;
+    padding-top: 1rem;
+    padding-bottom: -4px;
+}
+
+.form-lite .body .form-line .content-container input {
+    padding: 0.5rem;
+    background: none;
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+.form-lite .body .form-line .action-container {
+    display: inline-block;
+}
+
+@media screen and (max-width: 1400px) {
+    .form-lite .body .form-line label {
+        width: 20%;
+    }
+    .form-lite .body .form-line .content-container {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .form-lite .body .form-line label {
+        width: 20%;
+    }
+    .form-lite .body .form-line .content-container {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .form-lite .body .form-line label {
+        width: 25%;
+    }
+    .form-lite .body .form-line .content-container {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .form-container {
+        padding: 0;
+    }
+}

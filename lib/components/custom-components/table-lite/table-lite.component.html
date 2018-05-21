@@ -1,0 +1,59 @@
+<div class="table-container">
+    <div class="table-lite">
+        <div class="header">
+            <div class="title text-color dark" *ngIf="!!config.getTitle()">{{config.getTitle()}}</div>
+            <!--<div class="action-container">-->
+            <!--<a md-mini-fab *ngFor="let action of config.getNormalActions()" [color]="action.color ? action.color : 'primary'" mdTooltip="{{action.name}}"
+					[mdTooltipPosition]="'above'" (click)="action.action()">
+					<md-icon>{{action.icon}}</md-icon>
+					</a>-->
+            <!--</div>-->
+            <!--<div class="checked-action-container" *ngIf="isChecked() && !isCheckedMulti()">-->
+            <!--<a md-button *ngFor="let action of config.getSingleActions()" [color]="action.color ? action.color : 'primary'" (click)="action.action(getCheckedIndexList()[0])">
+					<md-icon>{{action.icon}}</md-icon> {{action.name}}
+				</a>-->
+            <!--</div>-->
+            <!--<div class="checked-action-container" *ngIf="isCheckedMulti()">-->
+            <!--<a md-button *ngFor="let action of config.getMultiActions()" [color]="action.color ? action.color : 'primary'" (click)="action.action(getCheckedIndexList())">
+					<md-icon>{{action.icon}}</md-icon> {{action.name}}
+				</a>-->
+            <!--</div>-->
+        </div>
+        <div class="body">
+            <table>
+                <thead>
+                    <tr>
+                        <!--<th>
+							<input type="checkbox" *ngIf="!config.isOnlySingleSelectEnabled()" (change)="selectAll($event)" [checked]="getCheckedIndexList().length == data.length">
+						</th>-->
+                        <th *ngFor="let column of config.getColumns()">{{column.header}}</th>
+                        <th *ngFor="let action of config.getSingleActions()"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of data;let i = index;">
+                        <!--<td>
+							<input type="checkbox" (change)="select(i , $event)" [checked]="selectList[i]">
+						</td>-->
+                        <td *ngFor="let column of config.getColumns()">
+                            <div [ngSwitch]="column.type">
+                                <span *ngSwitchCase="'text'">{{column.pipe ? column.pipe(i) : row[column.key]}}</span>
+                                <span *ngSwitchCase="'date'">{{getDate(row[column.key])}}</span>
+                                <span *ngSwitchCase="'boolean'" class="text-color" [ngClass]="row[column.key] ? 'primary' : 'danger'">
+									{{row[column.key] ? column.trueText : column.falseText}}
+								</span>
+                                <span *ngSwitchCase="'select'">{{column.options[row[column.key]]}}</span>
+                                <span *ngSwitchDefault>{{row[column.key]}}</span>
+                            </div>
+                        </td>
+                        <td *ngFor="let action of config.getSingleActions()">
+                            <button class="danger x-small full" (click)="action.action(i)">
+								{{action.name}}
+							</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

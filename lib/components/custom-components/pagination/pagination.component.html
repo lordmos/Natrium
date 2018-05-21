@@ -1,0 +1,19 @@
+<div class="pagination">
+	<ul>
+		<li (click)="firstPage()" [ngClass]="{disabled : currentPage == 0}">
+			<span>首页</span>
+		</li>
+		<li (click)="previousPage()" [ngClass]="{disabled : currentPage == 0}" class="round">
+			<span class="ion ion-chevron-left"></span>
+		</li>
+		<li *ngFor="let page of getPages()" (click)="changePage(page)" [ngClass]="{active : currentPage == page}">
+			<span>{{page + 1}}</span>
+		</li>
+		<li (click)="nextPage()" [ngClass]="{disabled:currentPage == totalPage - 1}" class="round">
+			<span class="ion ion-chevron-right"></span>
+		</li>
+		<li (click)="lastPage()" [ngClass]="{disabled:currentPage == totalPage - 1}">
+			<span>尾页</span>
+		</li>
+	</ul>
+</div>

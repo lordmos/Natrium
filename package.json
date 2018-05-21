@@ -1,6 +1,6 @@
 {
-    "name": "natrium",
-    "version": "0.0.1",
+    "name": "natrium-ng",
+    "version": "0.0.9",
     "description": "Natrium - Angular Admin Auto Generator",
     "main": "index.js",
     "scripts": {

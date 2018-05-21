@@ -11,11 +11,11 @@ const path = __importStar(require("path"));
 const fs = __importStar(require("fs"));
 const rootPath = path.join(__dirname, "..", "..", "..");
 const packageJsonPath = path.join(rootPath, "package.json");
-const ngCliJsonPath = path.join(rootPath, ".angular-cli.json");
-console.log(ngCliJsonPath);
-fs.exists(ngCliJsonPath, (exists) => {
+const angularJsonPath = path.join(rootPath, "angular.json");
+console.log(angularJsonPath);
+fs.exists(angularJsonPath, (exists) => {
     if (!exists) {
-        console.error("Natrium : .angular-cli.json file is not exist , are your sure this is an angular project ?");
+        console.error("Natrium : angular.json file is not exist , are your sure this is an angular v6+ project ?");
     }
     else {
         fs.readFile(packageJsonPath, "utf8", (err, file) => {

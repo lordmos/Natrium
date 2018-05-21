@@ -1,0 +1,33 @@
+<div class="form-container">
+	<div class="form-lite">
+		<div class="header">
+			<div class="title text-color dark">{{config.getTitle()}}</div>
+		</div>
+		<div class="body">
+			<div *ngFor="let line of config.getForm();let index = index" class="form-line">
+				<label>{{line.name}}</label>
+				<div class="content-container clear-input" [ngSwitch]="line.type">
+					<input [(ngModel)]="dataCopy[line.key]" [disabled]="!editState[index]" *ngSwitchCase="'text'">
+					<input [(ngModel)]="dataCopy[line.key]" [disabled]="!editState[index]" type="email" *ngSwitchCase="'email'">
+					<input [(ngModel)]="dataCopy[line.key]" [disabled]="!editState[index]" type="tel" *ngSwitchCase="'tel'">
+					<input [(ngModel)]="dataCopy[line.key]" [disabled]="!editState[index]" type="password" *ngSwitchCase="'password'">
+					<input [(ngModel)]="dataCopy[line.key]" [disabled]="!editState[index]" type="datetime-local" *ngSwitchCase="'date'">
+					<div *ngSwitchCase="'location'">
+						<location-select [locationInfo]="dataCopy[line.key]" [isDisabled]="!editState[index]" (onLocationSelect)="onLocationSelect($event , line.key , index)">
+						</location-select>
+					</div>
+					<input [(ngModel)]="dataCopy[line.key]" [disabled]="!editState[index]" *ngSwitchDefault>
+				</div>
+
+				<button class="danger full x-small" (click)="changeEditable(index)" *ngIf="!editState[index] && line.editable">编辑</button>
+				<button class="danger full x-small" (click)="onSave(line.key , dataCopy[line.key],index)" *ngIf="editState[index]">保存</button>
+				<button class="danger x-small" (click)="cancel(line.key ,index)" *ngIf="editState[index]">取消</button>
+			</div>
+		</div>
+		<div class="footer">
+			<!--<button *ngFor="let action of config.getActions()" md-button color="{{action.color ? action.color : 'default'}}" (click)="action.action()">
+				<md-icon>{{action.icon}}</md-icon> {{action.name}}
+			</button>-->
+		</div>
+	</div>
+</div>

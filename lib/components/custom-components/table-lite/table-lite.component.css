@@ -1,0 +1,128 @@
+.table-container {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    padding-bottom: 0;
+}
+
+.table-lite table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-lite table thead {
+    background: #F6F6F6;
+}
+
+.table-lite table tbody {
+}
+
+.table-lite table thead tr ,
+.table-lite table tbody tr {
+    width: 100%;
+    height: 3em;
+    /*border-bottom: 1px solid #e0e0e0;*/
+    transition: background 280ms cubic-bezier(.4,0,.2,1);
+    will-change: background;
+}
+
+.table-lite table tbody tr:nth-of-type(even) {
+    background-color: #F6F6F6;
+}
+
+.table-lite table tbody tr:hover {
+    background-color: #E0E0E0;
+}
+
+.table-lite table thead th {
+    color: #444;
+    font-weight: bold;
+}
+
+.table-lite table tbody td {
+    color: #444;
+}
+
+.table-lite table thead th ,
+.table-lite table tbody td {
+    text-align: right;
+    padding-left: 2rem;
+    padding-right: 1rem;
+}
+
+.table-lite table thead th:first-of-type ,
+.table-lite table tbody td:first-of-type {
+    padding-left: 1rem;
+    text-align: left;
+}
+
+.table-lite table thead th:nth-child(2) ,
+.table-lite table tbody td:nth-child(2) {
+    text-align: left;
+    padding-left: 0;
+}
+
+
+.table-lite {
+    display: block;
+    position: relative;
+}
+
+.table-lite .header {
+    display: block;
+    transition: background 280ms cubic-bezier(.4,0,.2,1);
+    will-change: background;
+    border-left: 0.25rem solid #d5212b;
+    overflow: auto;
+    background: #F9F9F9;
+}
+
+.table-lite .header.active {
+    background: #C5CAE9;
+}
+
+.table-lite .header .title {
+    display: inline-block;
+    padding: 1rem;
+    font-size: 1rem;
+    float: left;
+    font-weight: bold;
+}
+
+.table-lite .header .action-container {
+    display: inline-block;
+    float: right;
+    padding: 14px ;
+}
+
+.table-lite .header .checked-action-container {
+    display: inline-block;
+    float: left;
+    padding: 1em 8px;
+}
+
+.table-lite .body {
+    width: 100%;
+    padding: 1rem;
+    background: white;
+}
+
+.table-lite .footer {
+    padding: 0.5rem;
+}
+
+@media screen and (max-width: 1100px) {
+    .table-lite table thead th ,
+    .table-lite table tbody td {
+        padding: 0 0.5rem;
+    }
+
+    .table-lite table thead th:last-of-type ,
+    .table-lite table tbody td:last-of-type {
+        padding-right: 1rem;
+    }
+
+    .table-container {
+        padding: 0;
+    }
+}
